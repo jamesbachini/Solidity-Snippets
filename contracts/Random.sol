@@ -5,7 +5,7 @@ pragma solidity >=0.8.0;
 contract RandomishNumbers {
 
     function random() private view returns (uint) {
-        uint hashNumber =  uint(keccak256(abi.encodePacked(block.difficulty, block.timestamp)));
+        uint hashNumber =  uint(keccak256(abi.encodePacked(block.difficulty, block.timestamp, msg.sender)));
         return hashNumber % 100;
     }
 }
