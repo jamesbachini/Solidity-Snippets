@@ -2,7 +2,7 @@
 pragma solidity >=0.8.0;
 
 contract SwapTokens {
-  address public uinswapV3RouterAddress = 0xE592427A0AEce92De3Edee1F18E0157C05861564; // Kovan
+  address public uinswapV3RouterAddress = 0xE592427A0AEce92De3Edee1F18E0157C05861564;
 
 	function buyWeth(uint amountUSD) internal {
 		uint256 deadline = block.timestamp + 15;
