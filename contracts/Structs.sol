@@ -9,7 +9,9 @@ contract Structural {
     uint age;
     address addy;
   }
-  Newb[] public newbies;
+  Newb[] public newbies; // an array
+
+  mapping (address => Newb) public newbs; // a mapping
 
   function addMe public () {
     newbies.push(Newb('James',21,msg.sender);
