@@ -2,9 +2,9 @@
 pragma solidity ^0.8.11;
 
 contract Events  {
-  event logThis(string msg);
+  event LogThis(string msg);
 
   function test() external {
-    emit logThis('Hello World');
+    emit LogThis('Hello World');
   }
 }
