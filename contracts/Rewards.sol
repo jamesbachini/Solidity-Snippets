@@ -12,7 +12,6 @@ contract Rewards {
 
     uint public deployedTS;
     uint rewardsPerDay = 10000000; // wei, 18 decimals
-    uint secondsPerDay = 86400;
 
     constructor() {
         deployedTS = block.timestamp;
@@ -24,10 +23,9 @@ contract Rewards {
     }
 
     function claimRewards() public {
-        require(startTS[msg.sender] != 0, 'No record of user account');
-        require(startTS[msg.sender] < block.timestamp - secondsPerDay, 'No Rewards Due');
-        // uint daysDue = block.timestamp - startTS[msg.sender] / secondsPerDay;
-        uint rewardAmount = block.timestamp - startTS[msg.sender] * rewardsPerDay / secondsPerDay;
+        require(startTS[msg.sender] != 0, "No record of user account");
+        require(startTS[msg.sender] < block.timestamp - 1 days, "No Rewards Due On First Day");
+        uint rewardAmount = block.timestamp - startTS[msg.sender] * rewardsPerDay / 1 days;
         startTS[msg.sender] = block.timestamp;
         IERC20(rewardToken).transfer(msg.sender, rewardAmount);
     }
