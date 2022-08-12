@@ -1,15 +1,8 @@
-# Basic Sample Hardhat Project
+# Solidity Example Code
 
-This project demonstrates a basic Hardhat use case. It comes with a sample contract, a test for that contract, a sample script that deploys that contract, and an example of a task implementation, which simply lists the available accounts.
+This is a personal dumping ground of untested Solidity code.
 
-Try running some of the following tasks:
+Solidity Tutorials:
+https://jamesbachini.com/category/development/solidity/
 
-```shell
-npx hardhat accounts
-npx hardhat compile
-npx hardhat clean
-npx hardhat test
-npx hardhat node
-node scripts/sample-script.js
-npx hardhat help
-```
+All code is for demonstration purposes and should not be used for financial transactions.
