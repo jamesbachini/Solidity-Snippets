@@ -11,7 +11,7 @@ contract Rewards {
     mapping(address => uint) public startTS;
 
     uint public deployedTS;
-    uint public rewardsPerDay = 10000000; // wei, 18 decimals
+    uint public rewardsPerDay = 1e18; // wei, 18 decimals
     uint public totalParticipants;
 
     constructor() {
@@ -27,14 +27,14 @@ contract Rewards {
 
     function claimRewards() public {
         require(startTS[msg.sender] != 0, "No record of user account");
-        uint rewardAmount = block.timestamp - startTS[msg.sender] * rewardsPerDay / 1 days;
+        uint rewardAmount = (block.timestamp - startTS[msg.sender]) * rewardsPerDay / 1 days;
         startTS[msg.sender] = block.timestamp;
         IERC20(rewardToken).transfer(msg.sender, rewardAmount);
     }
 
     function userEarnings(address _user) public view returns(uint256) {
         if (startTS[_user] == 0) return 0;
-        uint rewardAmount = block.timestamp - startTS[_user] * rewardsPerDay / 1 days;
+        uint rewardAmount = (block.timestamp - startTS[_user]) * rewardsPerDay / 1 days;
         return rewardAmount;
     }
 }

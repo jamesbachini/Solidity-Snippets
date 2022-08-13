@@ -11,7 +11,7 @@ contract Rewards {
     mapping(address => uint) public startTS;
 
     uint public deployedTS;
-    uint rewardsPerDay = 10000000; // wei, 18 decimals
+    uint rewardsPerDay = 1e18; // wei, 18 decimals
 
     constructor() {
         deployedTS = block.timestamp;
