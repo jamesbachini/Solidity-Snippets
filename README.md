@@ -1,4 +1,4 @@
-# Solidity Example Code
+# Solidity Snippets & Example Ethereum Code
 
 This is a personal dumping ground of untested Solidity code.
 
