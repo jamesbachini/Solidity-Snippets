@@ -4,12 +4,12 @@ pragma solidity >=0.8.0;
 // Arrays Example
 contract Arrays {
 
-  address[] public myArray;
-  address[2] public myFixedArray = [0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045, 0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045];
-  address[][] public nestedArray;
+  uint[] public myArray;
+  uint[4] public myFixedArray = [3,5,1,8];
+  uint[][] public nestedArray;
 
-  function arrayPush(address _newAddress) public {
-    myArray.push(_newAddress);
+  function arrayPush(uint _newNumber) public {
+    myArray.push(_newNumber);
   }
 
   function arrayLoop() public view {
