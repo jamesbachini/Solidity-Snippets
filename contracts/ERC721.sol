@@ -1,17 +1,17 @@
-// SPDX-License-Identifier: GPL-3.0
+// SPDX-License-Identifier: MIT
 pragma solidity >=0.8.0;
 
 import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 import "@openzeppelin/contracts/utils/Base64.sol";
 
 contract MyNFT is ERC721 {
-    uint256 public tokenId;
-    uint256 public maxSupply = 1000;
+    uint public tokenId;
+    uint public maxSupply = 1000;
 
     constructor() ERC721("My NFT", "MFT") {
     }
 
-    function tokenURI(uint256) override public pure returns (string memory) {
+    function tokenURI(uint) override public pure returns (string memory) {
         string memory json = Base64.encode(bytes(string(
             abi.encodePacked('{"name": "My NFT", "description": "Whatever", "image": "https://ethereumhacker.com/img/nft.png"}')
         )));

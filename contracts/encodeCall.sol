@@ -3,7 +3,7 @@ pragma solidity >=0.8.16;
 // available from 0.8.11
 
 interface IERC20 {
-	function transfer(address recipient, uint amount) external returns (bool);
+    function transfer(address recipient, uint amount) external returns (bool);
 }
 
 contract encodeCall {

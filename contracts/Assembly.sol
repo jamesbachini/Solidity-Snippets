@@ -1,14 +1,14 @@
 // SPDX-License-Identifier: MIT
-pragma solidity >=0.8.15;
+pragma solidity >=0.8.0;
 
 contract StoringData {
-    function setDataToMemeory(uint256 newValue) public {
+    function setDataToMemeory(uint newValue) public {
         assembly {
             sstore(0, newValue)
         }
     }
 
-    function getDataFromMemory() public view returns(uint256) {
+    function getDataFromMemory() public view returns(uint) {
         assembly {
             let v := sload(0)
             mstore(0x80, v)
@@ -19,7 +19,7 @@ contract StoringData {
 
 contract SendETH {
     address[2] owners = [0xAb8483F64d9C6d1EcF9b849Ae677dD3315835cb2,0xdD870fA1b7C4700F2BD7f44238821C26f7392148];
-    function withdrawETH(address _to, uint256 _amount) external payable {
+    function withdrawETH(address _to, uint _amount) external payable {
         bool success;
         assembly {
             for { let i := 0 } lt(i, 2) { i := add(i, 1) } {
@@ -53,7 +53,7 @@ contract UselessEncryption {
             output := addToBytes(byteString,_decrypt)
         }
         bytes memory bytesArray = new bytes(32);
-        for (uint256 i; i < 32; i++) bytesArray[i] = output[i];
+        for (uint i; i < 32; i++) bytesArray[i] = output[i];
         return string(bytesArray);
     }
 }

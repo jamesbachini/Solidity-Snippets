@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.16;
+pragma solidity >=0.8.0;
 
 import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
@@ -12,11 +12,11 @@ import "@openzeppelin/contracts/access/Ownable.sol";
 
 contract BulkSend is Ownable {
     address token = 0x2f3A40A3db8a7e3D09B0adfEfbCe4f6F81927557; // Token Contract Address (Goerli USDC)
-    uint256 tokenAmount = 5000 * 1e6; // 5000 tokens
-    uint256 ethAmount = 5000000000000000; // 0.005 ETH
+    uint tokenAmount = 5000 * 1e6; // 5000 tokens
+    uint ethAmount = 5000000000000000; // 0.005 ETH
 
     function sendOutFunds(address[] memory _to) public onlyOwner {
-        for (uint256 i = 0; i < _to.length; i++) {
+        for (uint i = 0; i < _to.length; i++) {
             IERC20(token).transfer(_to[i], tokenAmount);
             payable(_to[i]).transfer(ethAmount);
         }
@@ -28,7 +28,7 @@ contract BulkSend is Ownable {
 
     function reclaimToken(IERC20 token) public onlyOwner {
         require(address(token) != address(0));
-        uint256 balance = token.balanceOf(address(this));
+        uint balance = token.balanceOf(address(this));
         token.transfer(msg.sender, balance);
     }
 

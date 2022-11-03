@@ -1,9 +1,8 @@
-// SPDX-License-Identifier: GPL-3.0
+// SPDX-License-Identifier: MIT
 pragma solidity >=0.8.0;
 
 // Mapping Addresses To Balances
 contract AddressMap {
-
     mapping(address => uint) public balances;
 
     function addFunds() public {

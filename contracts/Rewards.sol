@@ -1,11 +1,10 @@
-// SPDX-License-Identifier: GPL-3.0
+// SPDX-License-Identifier: MIT
 pragma solidity >=0.8.0;
 
 import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 
 // Send out ERC20 Rewards
 contract Rewards {
-  
     address rewardToken = 0xd0A1E359811322d97991E03f863a0C30C2cF029C; // Kovan WETH
 
     mapping(address => uint) public startTS;
