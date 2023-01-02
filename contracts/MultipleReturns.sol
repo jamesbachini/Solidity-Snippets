@@ -12,6 +12,6 @@ contract MultipleReturns {
     function getVar() external pure returns(uint) {
         // (uint a, uint b, uint c) = returnVars();
         (,uint b,) = returnVars();
-        return (b);
+        return b;
     }
 }

@@ -9,7 +9,7 @@ contract AddressMap {
         balances[msg.sender] = 1000;
     }
 
-    function checkFunds(address _addr) view returns(uint) {
+    function checkFunds(address _addr) public view returns(uint) {
         return balances[_addr];
     }
 }

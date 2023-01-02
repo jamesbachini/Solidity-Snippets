@@ -22,7 +22,7 @@ contract Arrays {
         return myArray.length;
     }
 
-    function delByIndex(uint _i) public {
+    function deleteByIndex(uint _i) public {
         for (uint i = _i; i < myArray.length - 1; ++i) {
             myArray[i] = myArray[i+1];
         }
