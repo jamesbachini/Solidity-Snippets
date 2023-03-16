@@ -26,10 +26,10 @@ contract BulkSend is Ownable {
         payable(msg.sender).transfer(address(this).balance);
     }
 
-    function reclaimToken(IERC20 token) public onlyOwner {
-        require(address(token) != address(0));
-        uint balance = token.balanceOf(address(this));
-        token.transfer(msg.sender, balance);
+    function reclaimToken(IERC20 _token) public onlyOwner {
+        require(address(_token) != address(0));
+        uint balance = _token.balanceOf(address(this));
+        _token.transfer(msg.sender, balance);
     }
 
     receive() external payable {}
