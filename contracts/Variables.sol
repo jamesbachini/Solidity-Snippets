@@ -14,7 +14,7 @@ contract Variables {
     State public myState = State.INACTIVE;
 
     struct Person {
-        string name;
+        string username;
         uint256 age;
     }
     Person public myPerson;
@@ -30,15 +30,15 @@ contract Variables {
         myPerson = Person("Alice", 30);
     }
 
-    function setUint(uint256 newValue) public {
-        myUint = newValue;
+    function setUint(uint256 _newValue) public {
+        myUint = _newValue;
     }
 
-    function setPerson(string memory name, uint256 age) public {
-        myPerson = Person(name, age);
+    function setPerson(string memory _username, uint256 _age) public {
+        myPerson = Person(_username, _age);
     }
 
-    function addToArray(uint256 newValue) public {
-        myArray.push(newValue);
+    function addToArray(uint256 _newValue) public {
+        myArray.push(_newValue);
     }
 }
