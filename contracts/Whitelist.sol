@@ -3,7 +3,7 @@ pragma solidity ^0.8.17;
 
 import "@openzeppelin/contracts/utils/cryptography/MerkleProof.sol";
 
-contract MerkleDemo {
+contract Whitelist {
   address public test;
   bytes32 public merkleRoot;
 
