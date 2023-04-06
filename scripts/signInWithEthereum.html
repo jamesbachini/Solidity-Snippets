@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+<button onclick="connectAndSign()">Connect &amp; Sign</button>
+<div id="output"></div>
+<script src="https://cdn.ethers.io/lib/ethers-5.2.umd.min.js" type="application/javascript"></script>
+<script>
+const provider = new ethers.providers.Web3Provider(window.ethereum,'any');
+
+const connectAndSign = async () => {
+await provider.send("eth_requestAccounts", []);
+    const signer = provider.getSigner()
+    
+    const domain = 'JamesBachini.com';
+    const userAddress = await signer.getAddress();
+    const statement = 'I accept the terms and wish to sign in with Ethereum';
+    const uri = 'https://jamesbachini.com/misc/signInWithEthereum.html';
+    const version = 1;
+    const chainId = 0;
+    const nonce = Math.round(Math.random() * 9999999);
+    const issuedAt = Math.floor(Date.now() / 1000);
+
+    const message = `${domain} wants you to sign in with your Ethereum account:
+${userAddress}
+
+${statement}
+
+URI: ${uri}
+Version: ${version}
+Chain ID: ${chainId}
+Nonce: ${nonce}
+Issued At: ${issuedAt}`;
+
+    let flatSignature = await signer.signMessage(message);
+    console.log('flatSignature',flatSignature);
+    let soliditySignature = ethers.utils.splitSignature(flatSignature);
+    console.log('soliditySignature',soliditySignature);
+    document.getElementById('output').innerHTML = flatSignature;
+    // send signature for processing
+}
+
+</script>
+</body>
+</html>
