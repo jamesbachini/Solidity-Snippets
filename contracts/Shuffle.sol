@@ -21,7 +21,7 @@ contract Shuffle {
     function shuffle() public {
         uint256 deckSize = deck.length;
         for (uint256 i = 0; i < deckSize; i++) {
-            uint256 j = uint256(keccak256(abi.encode(block.prevrandao, msg.sender, i))) % deckSize;
+            uint256 j = uint256(keccak256(abi.encode(block.prevrandao, i))) % deckSize;
             Card memory tmpCard = deck[i];
             deck[i] = deck[j];
             deck[j] = tmpCard;
