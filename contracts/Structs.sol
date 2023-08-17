@@ -13,10 +13,14 @@ contract Structural {
     mapping (address => Newb) public newbs; // a mapping
 
     function addMe public () {
-        newbies.push(Newb('James',21,msg.sender);
+        newbies.push(Newb('James',21,msg.sender));
     }
 
     function whatsMyAgeAgain public view returns(uint) {
         return newbies[0].age;
+    }
+
+    function remove(uint _i) public {
+        delete newbies[_i];
     }
 }
