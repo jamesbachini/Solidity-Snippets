@@ -15,7 +15,7 @@ contract StaggeredSale is ERC20, Ownable {
     bool tokenLive;
     event PublicSale(address to, uint amountReceived, uint ethContributed);
 
-    constructor() ERC20("Staggered Sale Token", "SST") {
+    constructor() ERC20("Staggered Sale Token", "SST") Ownable(msg.sender) {
         deployedTimestamp = block.timestamp;
         startDate = deployedTimestamp + 7 days;
         endDate = deployedTimestamp + 37 days;
@@ -83,8 +83,8 @@ contract StaggeredSale is ERC20, Ownable {
             _mint(owner(), unsoldTokens);
     }
 
-    function _beforeTokenTransfer(address from, address to, uint256 amount) internal override {
+    function _update(address from, address to, uint256 amount) internal override {
         require(tokenLive == true, "Token transfers not enabled yet");
-        super._beforeTokenTransfer(from, to, amount);
+        super._update(from, to, amount);
     }
 }

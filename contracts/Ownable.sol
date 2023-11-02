@@ -3,7 +3,7 @@ pragma solidity >=0.8.0;
 
 import "@openzeppelin/contracts/access/Ownable.sol";
 
-contract OwnableExample1 is Ownable {
+contract OwnableExample1 is Ownable(msg.sender) {
     function adminFunctionExample() public onlyOwner {
         // Avoid Decentralisation Here
     }

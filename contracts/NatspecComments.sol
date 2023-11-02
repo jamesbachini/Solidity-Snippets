@@ -20,7 +20,7 @@ contract Comments is ERC20, Ownable {
     /**
      * @dev Constructor method initializes the ERC20 Token.
      */
-    constructor() ERC20("Commment Token", "CT") {}
+    constructor() ERC20("Commment Token", "CT") Ownable(msg.sender) {}
 
     /**
      * @notice Mints new tokens
@@ -39,7 +39,7 @@ contract Comments is ERC20, Ownable {
      * @dev overrides ERC20 internal function
      * @inheritdoc ERC20
      */
-    function _afterTokenTransfer(address, address _to, uint256 _amount) internal override { 
+    function _update(address, address _to, uint256 _amount) internal override { 
         // nothing to see here
     }
 }

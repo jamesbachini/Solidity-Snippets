@@ -10,7 +10,7 @@ import "@openzeppelin/contracts/access/Ownable.sol";
   Send ETH and tokens to the contract prior to executing sendOutFunds
 */
 
-contract BulkSend is Ownable {
+contract BulkSend is Ownable(msg.sender) {
     address token = 0x2f3A40A3db8a7e3D09B0adfEfbCe4f6F81927557; // Token Contract Address (Goerli USDC)
     uint tokenAmount = 5000 * 1e6; // 5000 tokens
     uint ethAmount = 5000000000000000; // 0.005 ETH
